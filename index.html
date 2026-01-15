@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>💍 The Fiancé Game - Michael's Answers</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Georgia', serif; 
+            background: linear-gradient(135deg, #fdf6f0 0%, #f7e7dc 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container { max-width: 700px; margin: 0 auto; }
+        .header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #b76e79 0%, #8b4557 100%);
+            border-radius: 20px 20px 0 0;
+            color: white;
+        }
+        .header h1 { font-size: 2.2em; margin-bottom: 10px; }
+        .header p { font-size: 1.1em; opacity: 0.9; }
+        .form-container {
+            background: white;
+            padding: 30px;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        .question-card {
+            background: #fdf9f7;
+            border-radius: 15px;
+            padding: 25px;
+            margin-bottom: 25px;
+            border-left: 4px solid #b76e79;
+        }
+        .question-number {
+            background: #b76e79;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+            margin-right: 10px;
+        }
+        .question-title {
+            font-size: 1.2em;
+            color: #5a3d4a;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+        .answer-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-top: 15px;
+        }
+        @media (max-width: 600px) {
+            .answer-row { grid-template-columns: 1fr; }
+        }
+        .answer-box {
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            border: 2px solid #e0d5d0;
+        }
+        .answer-box.michael { border-color: #4682b4; }
+        .answer-box.emilia { border-color: #b76e79; }
+        .answer-label {
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+            font-size: 0.95em;
+        }
+        .answer-label.michael { color: #4682b4; }
+        .answer-label.emilia { color: #b76e79; }
+        input[type="text"], textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-size: 16px;
+            font-family: inherit;
+        }
+        input[type="text"]:focus, textarea:focus {
+            outline: none;
+            border-color: #b76e79;
+            box-shadow: 0 0 0 3px rgba(183,110,121,0.1);
+        }
+        .radio-group { display: flex; flex-direction: column; gap: 8px; }
+        .radio-option {
+            display: flex;
+            align-items: center;
+            padding: 10px 12px;
+            background: #f9f9f9;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .radio-option:hover { background: #f0f0f0; }
+        .radio-option input { margin-right: 10px; accent-color: #b76e79; }
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #b76e79 0%, #8b4557 100%);
+            color: white;
+            border: none;
+            border-radius: 12px;
+            font-size: 1.2em;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 20px rgba(183,110,121,0.4);
+        }
+        .hearts { font-size: 1.5em; margin: 10px 0; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="hearts">💕 💍 💕</div>
+            <h1>The Fiancé Game</h1>
+            <p>How well do Michael & Emilia know each other?</p>
+        </div>
+        
+        <div class="form-container">
+            <form action="https://formspree.io/f/REPLACE_WITH_YOUR_FORM_ID" method="POST" id="fianceForm">
+                <input type="hidden" name="_subject" value="💍 Michael's Fiancé Game Answers!">
+                
+                <!-- Question 1 -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">1</span>
+                        Which emoji do you use the most?
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <input type="text" name="q1_michael" required placeholder="Your answer...">
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <input type="text" name="q1_emilia" required placeholder="Emilia's answer...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">2</span>
+                        What is your go-to coffee or tea order?
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <input type="text" name="q2_michael" required placeholder="Your order...">
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <input type="text" name="q2_emilia" required placeholder="Emilia's order...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 - Multiple Choice -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">3</span>
+                        Texting style
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q3_michael" value="Full sentences" required> Full sentences</label>
+                                <label class="radio-option"><input type="radio" name="q3_michael" value="Short replies"> Short replies</label>
+                            </div>
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q3_emilia" value="Full sentences" required> Full sentences</label>
+                                <label class="radio-option"><input type="radio" name="q3_emilia" value="Short replies"> Short replies</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 4 - Multiple Choice -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">4</span>
+                        Are you usually…
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q4_michael" value="Early" required> Early</label>
+                                <label class="radio-option"><input type="radio" name="q4_michael" value="On time"> On time</label>
+                                <label class="radio-option"><input type="radio" name="q4_michael" value="Running late"> Running late</label>
+                            </div>
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q4_emilia" value="Early" required> Early</label>
+                                <label class="radio-option"><input type="radio" name="q4_emilia" value="On time"> On time</label>
+                                <label class="radio-option"><input type="radio" name="q4_emilia" value="Running late"> Running late</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 5 -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">5</span>
+                        Favorite kind of takeout?
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <input type="text" name="q5_michael" required placeholder="Your favorite...">
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <input type="text" name="q5_emilia" required placeholder="Emilia's favorite...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 6 - Multiple Choice -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">6</span>
+                        Alarm style
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q6_michael" value="One alarm" required> One alarm</label>
+                                <label class="radio-option"><input type="radio" name="q6_michael" value="Multiple alarms"> Multiple alarms</label>
+                                <label class="radio-option"><input type="radio" name="q6_michael" value="Snooze champion"> Snooze champion</label>
+                                <label class="radio-option"><input type="radio" name="q6_michael" value="No alarm needed"> No alarm needed</label>
+                            </div>
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q6_emilia" value="One alarm" required> One alarm</label>
+                                <label class="radio-option"><input type="radio" name="q6_emilia" value="Multiple alarms"> Multiple alarms</label>
+                                <label class="radio-option"><input type="radio" name="q6_emilia" value="Snooze champion"> Snooze champion</label>
+                                <label class="radio-option"><input type="radio" name="q6_emilia" value="No alarm needed"> No alarm needed</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 7 -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">7</span>
+                        Most recent show watched or binge-watched?
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <input type="text" name="q7_michael" required placeholder="Your show...">
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <input type="text" name="q7_emilia" required placeholder="Emilia's show...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 8 - Multiple Choice -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">8</span>
+                        Saturday morning style
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q8_michael" value="Up early" required> Up early</label>
+                                <label class="radio-option"><input type="radio" name="q8_michael" value="Sleep in"> Sleep in</label>
+                                <label class="radio-option"><input type="radio" name="q8_michael" value="Plans booked"> Plans booked</label>
+                                <label class="radio-option"><input type="radio" name="q8_michael" value="One plan"> One plan</label>
+                                <label class="radio-option"><input type="radio" name="q8_michael" value="No plans"> No plans</label>
+                            </div>
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q8_emilia" value="Up early" required> Up early</label>
+                                <label class="radio-option"><input type="radio" name="q8_emilia" value="Sleep in"> Sleep in</label>
+                                <label class="radio-option"><input type="radio" name="q8_emilia" value="Plans booked"> Plans booked</label>
+                                <label class="radio-option"><input type="radio" name="q8_emilia" value="One plan"> One plan</label>
+                                <label class="radio-option"><input type="radio" name="q8_emilia" value="No plans"> No plans</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 9 - Multiple Choice -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">9</span>
+                        Snack preference
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q9_michael" value="Sweet" required> Sweet</label>
+                                <label class="radio-option"><input type="radio" name="q9_michael" value="Salty"> Salty</label>
+                                <label class="radio-option"><input type="radio" name="q9_michael" value="Sweet & salty"> Sweet & salty</label>
+                                <label class="radio-option"><input type="radio" name="q9_michael" value="Full meal"> Full meal</label>
+                            </div>
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q9_emilia" value="Sweet" required> Sweet</label>
+                                <label class="radio-option"><input type="radio" name="q9_emilia" value="Salty"> Salty</label>
+                                <label class="radio-option"><input type="radio" name="q9_emilia" value="Sweet & salty"> Sweet & salty</label>
+                                <label class="radio-option"><input type="radio" name="q9_emilia" value="Full meal"> Full meal</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 10 - Multiple Choice -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">10</span>
+                        Phone battery anxiety starts at…
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q10_michael" value="30%" required> 30%</label>
+                                <label class="radio-option"><input type="radio" name="q10_michael" value="20%"> 20%</label>
+                                <label class="radio-option"><input type="radio" name="q10_michael" value="10%"> 10%</label>
+                                <label class="radio-option"><input type="radio" name="q10_michael" value="5%"> 5%</label>
+                            </div>
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q10_emilia" value="30%" required> 30%</label>
+                                <label class="radio-option"><input type="radio" name="q10_emilia" value="20%"> 20%</label>
+                                <label class="radio-option"><input type="radio" name="q10_emilia" value="10%"> 10%</label>
+                                <label class="radio-option"><input type="radio" name="q10_emilia" value="5%"> 5%</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 11 - Multiple Choice -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">11</span>
+                        Shoes at home
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q11_michael" value="Off immediately" required> Off immediately</label>
+                                <label class="radio-option"><input type="radio" name="q11_michael" value="Later"> Later</label>
+                                <label class="radio-option"><input type="radio" name="q11_michael" value="Shoes stay on"> Shoes stay on</label>
+                            </div>
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <div class="radio-group">
+                                <label class="radio-option"><input type="radio" name="q11_emilia" value="Off immediately" required> Off immediately</label>
+                                <label class="radio-option"><input type="radio" name="q11_emilia" value="Later"> Later</label>
+                                <label class="radio-option"><input type="radio" name="q11_emilia" value="Shoes stay on"> Shoes stay on</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 12 -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">12</span>
+                        Dream vacation destination (one place)
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <input type="text" name="q12_michael" required placeholder="Your dream destination...">
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <input type="text" name="q12_emilia" required placeholder="Emilia's dream destination...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 13 -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">13</span>
+                        One food you'll always say yes to
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <input type="text" name="q13_michael" required placeholder="Your food...">
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <input type="text" name="q13_emilia" required placeholder="Emilia's food...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 14 -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">14</span>
+                        Something you're surprisingly good at
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <input type="text" name="q14_michael" required placeholder="Your hidden talent...">
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <input type="text" name="q14_emilia" required placeholder="Emilia's hidden talent...">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 15 -->
+                <div class="question-card">
+                    <div class="question-title">
+                        <span class="question-number">15</span>
+                        App you check most often
+                    </div>
+                    <div class="answer-row">
+                        <div class="answer-box michael">
+                            <label class="answer-label michael">🤵 Michael's Answer</label>
+                            <input type="text" name="q15_michael" required placeholder="Your most-used app...">
+                        </div>
+                        <div class="answer-box emilia">
+                            <label class="answer-label emilia">👰 What would Emilia say?</label>
+                            <input type="text" name="q15_emilia" required placeholder="Emilia's most-used app...">
+                        </div>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn">💍 Submit My Answers!</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
